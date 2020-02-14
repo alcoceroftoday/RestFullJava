@@ -11,6 +11,34 @@ repositories {
     mavenCentral()
 }
 
+def vertxVersion = '3.7.0'
+def DAGGER_VERSION = "2.22.1"
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compileOnly "com.google.dagger:dagger:${DAGGER_VERSION}"
+    compileOnly "com.google.dagger:dagger-compiler:${DAGGER_VERSION}"
+
+    compile "com.google.dagger:dagger:${DAGGER_VERSION}"
+    compile "com.google.dagger:dagger-compiler:${DAGGER_VERSION}"
+
+
+    annotationProcessor "com.google.dagger:dagger:${DAGGER_VERSION}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${DAGGER_VERSION}"
+
+
+    implementation "io.vertx:vertx-core:$vertxVersion"
+    implementation "io.vertx:vertx-jdbc-client:$vertxVersion"
+    implementation "io.vertx:vertx-auth-jwt:$vertxVersion"
+    implementation "io.vertx:vertx-rx-java2:$vertxVersion"
+    implementation "io.vertx:vertx-core:$vertxVersion"
+    implementation "io.vertx:vertx-web:$vertxVersion"
+    compile "io.vertx:vertx-health-check:$vertxVersion"
+    compile "io.vertx:vertx-web-client:$vertxVersion"
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    compile "io.vavr:vavr:0.9.3"
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
+    compile 'io.github.cdimascio:java-dotenv:5.0.1'
+
+    testImplementation "io.vertx:vertx-junit5:$vertxVersion"
 }
